@@ -7,6 +7,9 @@ public class CartMovement : MonoBehaviour
     [SerializeField] private float cartMovementSpeed = 1f;
     private void Update()
     {
-        transform.Translate(0, 0, cartMovementSpeed * Time.deltaTime);
+        if(GameManager.CurrentState == Enums.GameState.GameStarted)
+        {
+            transform.Translate(0, 0, cartMovementSpeed * Time.deltaTime);
+        }
     }
 }
