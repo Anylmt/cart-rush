@@ -14,10 +14,24 @@ public class GameManager : MonoBehaviour
         uiManager.Init();
 
         GameEvents.OnGameStart += HandleGameStart;
+        GameEvents.OnLevelSuccess += HandleLevelSucces;
+        GameEvents.OnLevelFail += HandleLevelFail;
     }
     private void OnDisable()
     {
         GameEvents.OnGameStart -= HandleGameStart;
+        GameEvents.OnLevelSuccess -= HandleLevelSucces;
+        GameEvents.OnLevelFail -= HandleLevelFail;
+    }
+
+    private void HandleLevelFail()
+    {
+        currentState = Enums.GameState.LevelFail;
+    }
+
+    private void HandleLevelSucces()
+    {
+        currentState = Enums.GameState.LevelSuccess;
     }
 
     private void HandleGameStart()

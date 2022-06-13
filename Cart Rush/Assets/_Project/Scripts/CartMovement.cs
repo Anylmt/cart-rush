@@ -12,4 +12,12 @@ public class CartMovement : MonoBehaviour
             transform.Translate(0, 0, cartMovementSpeed * Time.deltaTime);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish") && GameManager.CurrentState == Enums.GameState.GameStarted)
+        {
+            GameEvents.OnLevelSuccess?.Invoke();
+            Debug.Log("finish");
+        }
+    }
 }
