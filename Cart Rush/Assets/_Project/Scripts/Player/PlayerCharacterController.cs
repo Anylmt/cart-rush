@@ -48,7 +48,7 @@ public class PlayerCharacterController : MonoBehaviour
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -4.33f, 4.33f), transform.position.y, Mathf.Clamp(transform.position.z, cartTransform.position.z - 3f, cartTransform.position.z + 3f));
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -4.33f, 4.33f), transform.position.y, Mathf.Clamp(transform.position.z, cartTransform.position.z - 4f, cartTransform.position.z + 5f));
         }
     }
 }
