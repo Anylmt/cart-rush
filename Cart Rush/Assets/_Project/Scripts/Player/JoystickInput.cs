@@ -22,8 +22,6 @@ public class JoystickInput : MonoBehaviour
             {
                 inputValue = new Vector3(0, 0, 0.3f);
             }
-            
         }
-        
     }
 }

@@ -6,15 +6,42 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private Transform cartTransform;
     [SerializeField] private float enemySpeed = 2f;
-    Rigidbody rig;
+    [SerializeField] Vector3 startPosition;
+    Rigidbody enemyRb;
     private void Start()
     {
-        rig = GetComponent<Rigidbody>();
+        enemyRb = GetComponent<Rigidbody>();
+        startPosition = transform.position;
     }
     private void FixedUpdate()
     {
-        Vector3 pos = Vector3.MoveTowards(transform.position, cartTransform.position, enemySpeed * Time.fixedDeltaTime);
-        rig.MovePosition(pos);
-        transform.LookAt(cartTransform);
+        if (GameManager.CurrentState == Enums.GameState.GameStarted)
+        {
+            Vector3.Distance(transform.position, cartTransform.position);
+
+            if (Vector3.Distance(transform.position, cartTransform.position) > 1.8f)
+            {
+                Move();
+            }
+            //else
+            //{
+            //    ReturnPosition();
+            //}
+        }
     }
+
+    private void Move()
+    {
+        Vector3 pos = Vector3.MoveTowards(transform.position, cartTransform.position + Vector3.up, enemySpeed * Time.fixedDeltaTime);
+        enemyRb.MovePosition(pos);
+        transform.LookAt(cartTransform.position + Vector3.up);
+    }
+
+    //private void ReturnPosition()
+    //{
+    //    if (Vector3.Distance(transform.position, startPosition) > 1.8f)
+    //    {
+    //        transform.position = startPosition;
+    //    }
+    //}
 }
