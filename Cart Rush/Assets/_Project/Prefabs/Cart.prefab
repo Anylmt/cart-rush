@@ -864,9 +864,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3246702829057875619}
-  - component: {fileID: 3246702829057875628}
   - component: {fileID: 3133916505504126831}
   - component: {fileID: 5904307893468846773}
+  - component: {fileID: 3246702829057875628}
   m_Layer: 0
   m_Name: Cart
   m_TagString: Untagged
@@ -897,19 +897,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3246702829057875628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3246702829057875629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e70513e1595a4264f822a302ebc289b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cartMovementSpeed: 1
 --- !u!65 &3133916505504126831
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -919,9 +906,9 @@ BoxCollider:
   m_GameObject: {fileID: 3246702829057875629}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.75896883, y: 0.5935001, z: 0.76465833}
+  m_Size: {x: 1.6900203, y: 0.5935001, z: 1.5981252}
   m_Center: {x: -0.01205802, y: 0.4170656, z: 0.0008465449}
 --- !u!54 &5904307893468846773
 Rigidbody:
@@ -939,3 +926,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3246702829057875628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246702829057875629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e70513e1595a4264f822a302ebc289b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cartMovementSpeed: 1

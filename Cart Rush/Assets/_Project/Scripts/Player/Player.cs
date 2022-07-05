@@ -1,13 +1,39 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private PlayerCollect _collectHandler;
-    public PlayerCollect CollectHandler => _collectHandler;
-    private void Awake()
-    {
-        _collectHandler = GetComponent<PlayerCollect>();
+    [SerializeField] private Shelf shelf;
+    public List<Orange> CollectedOranges;
+    public Transform OrangeStack;
+    public int OrangeCount = 0;
 
-        _collectHandler.Init();
+    //public bool IsInShelfArea = false;
+
+    private void Start()
+    {
+        CollectedOranges = new List<Orange>();
+        //IsInShelfArea = false;
+        OrangeCount = 0;
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Shelf") && IsInShelfArea == false)
+    //    {
+    //        IsInShelfArea = true;
+            
+    //        Shelf shelf = other.GetComponent<Shelf>();
+    //        StartCoroutine(shelf.GiveOrangeWithDelay());
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Shelf") && IsInShelfArea == true)
+    //    {
+    //        IsInShelfArea = false;
+    //        shelf.StopGivingOranges();
+    //    }
+    //}
 }

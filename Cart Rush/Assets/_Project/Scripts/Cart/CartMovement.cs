@@ -17,13 +17,11 @@ public class CartMovement : MonoBehaviour
         if (other.CompareTag("Finish") && GameManager.CurrentState == Enums.GameState.GameStarted)
         {
             GameEvents.OnLevelSuccess?.Invoke();
-            Debug.Log("finish");
         }
         
         if (other.CompareTag("Enemy") && GameManager.CurrentState == Enums.GameState.GameStarted)
         {
             GameEvents.OnLevelFail?.Invoke();
-            Debug.Log("fail");
         }
     }
 }

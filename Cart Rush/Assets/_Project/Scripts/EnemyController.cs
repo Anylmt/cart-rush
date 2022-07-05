@@ -6,12 +6,10 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private Transform cartTransform;
     [SerializeField] private float enemySpeed = 2f;
-    [SerializeField] Vector3 startPosition;
-    Rigidbody enemyRb;
+    [SerializeField] Rigidbody enemyRb;
     private void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        startPosition = transform.position;
     }
     private void FixedUpdate()
     {
