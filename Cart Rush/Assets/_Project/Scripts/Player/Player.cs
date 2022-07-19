@@ -3,37 +3,61 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private Shelf shelf;
-    public List<Orange> CollectedOranges;
-    public Transform OrangeStack;
-    public int OrangeCount = 0;
+    [Header("-- SETUP --")]
+    public Transform orangeStacktPoint;
 
-    //public bool IsInShelfArea = false;
+    public List<GameObject> oranges = new List<GameObject>();
 
+    public int orangeCapacity = 8;
+    public int orangeCount = 0;
+    public int _rowNumber, _columnNumber, _heightNumber = 0;
+
+    //public float _rowOffset = 0.25f;
+    public float _columnOffset = -0.25f;
+    public float _heightOffset = 0.25f;
+
+    public int _rowLength = 2;
+    public int _columnLength = 4;
+    public int _heightLength = 4;
     private void Start()
     {
-        CollectedOranges = new List<Orange>();
-        //IsInShelfArea = false;
-        OrangeCount = 0;
+        oranges.Clear();
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Shelf") && IsInShelfArea == false)
-    //    {
-    //        IsInShelfArea = true;
-            
-    //        Shelf shelf = other.GetComponent<Shelf>();
-    //        StartCoroutine(shelf.GiveOrangeWithDelay());
-    //    }
-    //}
+    public void CheckOffsetValuesForCollect()
+    {
+        _heightNumber++;
 
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Shelf") && IsInShelfArea == true)
-    //    {
-    //        IsInShelfArea = false;
-    //        shelf.StopGivingOranges();
-    //    }
-    //}
+        if (_heightNumber == _heightLength)
+        {
+            _heightNumber = 0;
+            _columnNumber++;
+        }
+
+        if (_columnNumber == _columnLength)
+        {
+            _columnNumber = 0;
+            _rowNumber++;
+        }
+    }
+
+    public void CheckOffsetValuesForOnceAgainCollect()
+    {
+        if (_rowNumber == 0)
+        {
+            if (_columnNumber == 0 && _heightNumber > 0)
+            {
+                _heightNumber--;
+                _columnNumber = _columnLength - 1;
+                _rowNumber = _rowLength;
+            }
+            else
+            {
+                _columnNumber--;
+                _rowNumber = _rowLength;
+            }
+        }
+
+        _rowNumber--;
+    }
 }

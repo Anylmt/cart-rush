@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8028840809844508928}
   - component: {fileID: 225304416699239384}
   - component: {fileID: 2991937747825000512}
+  - component: {fileID: 1667545333}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -128,8 +129,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cartTransform: {fileID: 0}
-  enemySpeed: 2
-  startPosition: {x: 0, y: 0, z: 0}
+  enemySpeed: 1
+  enemyRb: {fileID: 0}
+--- !u!114 &1667545333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028840809844508932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7823d726dd0b42418d81edf143f57b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isInArea: 0
 --- !u!1 &8028840810917125899
 GameObject:
   m_ObjectHideFlags: 0
